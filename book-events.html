@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Book Events - Davie Golf Club</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="daviegolf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f5f0e8;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-btn">GET STARTED</a>
+            <a href="#" class="nav-btn">MEMBER LOGIN</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-logo">
+                <img src="daviehorse1.png" alt="Davie Golf Club Logo" class="nav-horse">
+                <span class="logo-name">DAVIE GOLF CLUB</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="hamburger">&#9776;</button>
+        </div>
+    </nav>
+
+    <aside class="side-menu" id="sideMenu">
+        <button class="side-menu-close" aria-label="Close menu">&times;</button>
+        <nav class="side-menu-links">
+            <a href="index.html">Home</a>
+            <a href="course-info.html">Course Info</a>
+            <a href="book-events.html">Book Events</a>
+            <a href="course-rates.html">Course Rates</a>
+            <a href="players-club.html">Players Club</a>
+        </nav>
+        <div class="side-menu-actions">
+            <a href="#" class="nav-btn">Get Started</a>
+            <a href="#" class="nav-btn">Member Login</a>
+        </div>
+        <div class="side-menu-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </aside>
+
+    <div class="page-banner">
+        <div class="banner-media">
+            <img src="banner.jpg" alt="Davie Golf Club Banner">
+            <h1 class="banner-heading"><span>Book</span><span>Events</span></h1>
+        </div>
+    </div>
+
+    <section class="book-section">
+        <div class="book-wrap">
+            <div class="book-form-col">
+                <h2 class="book-heading">Book Outings Request</h2>
+                <form class="book-form" action="#" method="POST">
+                    <div class="book-fields-row">
+                        <div class="book-field">
+                            <label for="firstName">First Name <span class="required">(*)</span></label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="book-field">
+                            <label for="lastName">Last Name <span class="required">(*)</span></label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="book-fields-row">
+                        <div class="book-field">
+                            <label for="email">Email Address <span class="required">(*)</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="book-field">
+                            <label for="phone">Phone Number <span class="required">(*)</span></label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="book-fields-row">
+                        <div class="book-field">
+                            <label for="eventDate">Event Date <span class="required">(*)</span></label>
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="book-field">
+                            <label for="groupSize">Group Size <span class="required">(*)</span></label>
+                            <input type="number" id="groupSize" name="groupSize" min="1" required>
+                        </div>
+                    </div>
+                    <div class="book-field">
+                        <label for="remarks">Specific Info or Remarks <span class="required">(*)</span></label>
+                        <textarea id="remarks" name="remarks" required></textarea>
+                    </div>
+                    <button type="submit" class="book-submit-btn">Send</button>
+                </form>
+            </div>
+            <div class="book-image-col">
+                <img src="carts.jpg" alt="Golf carts at Davie Golf Club" class="book-image">
+            </div>
+        </div>
+    </section>
+
+    <section class="outings-letter-section">
+        <div class="outings-letter-wrap">
+            <div class="outings-letter-image-col">
+                <img src="tent.jpg" alt="Outing tent at Davie Golf Club" class="outings-letter-image">
+            </div>
+            <div class="outings-letter">
+                <p>Dear Outings Coordinator:</p>
+                <p>Your golfers will love the course. Your duffers will love the views. You&rsquo;ll love the price!</p>
+                <p>Here at Davie, we like to brag about these things: &ldquo;Great layout, good views with wildlife, and good value equals great fun!&rdquo; You&rsquo;ll relish them all when your outing is held here!</p>
+                <p>Maybe most important, you&rsquo;re going to love that your outing comes in on budget &ndash; whatever your budget is. We&rsquo;re experts at squeezing your outing dollars to their maximum &ldquo;fun coefficient.&rdquo;</p>
+                <p>Great golf outings made fun! Give Davie GC a call, or fill out the form to start the (golf) ball rolling!<br>
+                    <a href="tel:19547974653" class="outings-letter-phone">(954) 797-4653</a>
+                </p>
+                <p class="outings-letter-ps">PS: We&rsquo;re easy to get to and convenient for your attendees.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="daviehorse1.png" alt="Davie Golf Club" class="footer-horse">
+                    <span class="footer-logo-name">DAVIE GOLF CLUB</span>
+                </div>
+
+                <div class="footer-town">
+                    <img src="townlogo.jpg" alt="Town of Davie" class="footer-town-logo">
+                    <span class="footer-town-caption">Owned and operated by the town of Davie</span>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Pro Shop Hours</h4>
+                    <p>Daily</p>
+                    <p>7:00 AM &ndash; 6:30 PM</p>
+                </div>
+                <div class="footer-col footer-col-explore">
+                    <h4>Explore</h4>
+                    <a href="index.html">Home</a>
+                    <a href="course-info.html">Course Info</a>
+                    <a href="book-events.html">Book Events</a>
+                    <a href="course-rates.html">Course Rates</a>
+                    <a href="players-club.html">Players Club</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Club</h4>
+                    <a href="#">Get Started</a>
+                    <a href="#">Member Login</a>
+                    <a href="#">Make a Tee Time</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Davie, Florida</p>
+                    <p>(954) 000-0000</p>
+                    <p>info@daviegolfclub.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Davie Golf Club. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="nav-menu.js"></script>
+</body>
+
+</html>

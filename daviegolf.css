@@ -1,0 +1,1800 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background: #0a1628;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* ─── PAGE BANNER (all pages except home) ─── */
+
+.page-banner {
+    display: flex;
+    justify-content: center;
+    padding: 100px 16px 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .page-banner {
+        padding-top: 110px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .page-banner {
+        padding-top: 122px;
+    }
+}
+
+.page-banner img {
+    display: block;
+    border-radius: 16px;
+    width: 100%;
+    height: auto;
+}
+
+.banner-media {
+    position: relative;
+    width: 100%;
+}
+
+.banner-media::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(
+        to right,
+        rgba(5, 14, 28, 0.55) 0%,
+        rgba(5, 14, 28, 0.15) 45%,
+        rgba(5, 14, 28, 0.00) 70%
+    );
+}
+
+.banner-heading {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    margin: 0;
+    z-index: 2;
+    font-family: 'Bebas Neue', serif;
+    color: white;
+    font-size: clamp(26px, 6vw, 90px);
+    line-height: 0.95;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.banner-heading span {
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .banner-heading {
+        left: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .banner-heading {
+        left: 48px;
+    }
+}
+
+/* ─── CARDS SECTION (mobile base) ─── */
+
+.cards-section {
+    padding: 32px 16px;
+    background: #f5f0e8;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(2, 140px);
+    gap: 10px;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* ─── CARDS SECTION (tablet) ─── */
+@media (min-width: 768px) {
+    .cards-section {
+        padding: 48px 40px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 240px 240px;
+        gap: 12px;
+        max-width: 700px;
+    }
+}
+
+/* ─── CARDS SECTION (desktop) ─── */
+@media (min-width: 1024px) {
+    .cards-section {
+        padding: 60px 60px;
+    }
+
+    .cards-grid {
+        grid-template-rows: 280px 280px;
+        gap: 14px;
+        max-width: 900px;
+    }
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px);
+    text-decoration: none;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* mobile: cards rotate in from the right like cube faces turning into place */
+@media (max-width: 767px) {
+    .cards-grid {
+        perspective: 900px;
+    }
+
+    .card {
+        opacity: 0;
+        transform: translateX(65%) rotateY(-70deg);
+        transform-origin: left center;
+        backface-visibility: hidden;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .card.visible {
+        opacity: 1;
+        transform: translateX(0) rotateY(0deg);
+    }
+}
+
+.card-overlay {
+    position: absolute;
+    width: 300%;
+    height: 300%;
+    left: -216%;
+    bottom: -248%;
+    border-radius: 50%;
+    background: #deb753;
+    transition: bottom 0.6s ease, left 0.6s ease, width 0.6s ease, height 0.6s ease, border-radius 0.6s ease;
+    z-index: 1;
+}
+
+.card:hover .card-overlay {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+@media (max-width: 767px) {
+    .card-overlay {
+        display: none;
+    }
+
+    .card-label {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 8px rgba(0, 0, 0, 0.6);
+    }
+}
+
+.card-label {
+    position: absolute;
+    bottom: 10px;
+    left: 12px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: white;
+    z-index: 2;
+}
+
+@media (min-width: 768px) {
+    .card-label {
+        bottom: 20px;
+        left: 22px;
+        font-size: 15px;
+        letter-spacing: 0.1em;
+    }
+}
+
+/* ─── FAIRWAY SECTION ─── */
+
+.fairway-section {
+    position: relative;
+    width: 100%;
+    min-height: 50vh;
+    background-image: url("16fairway.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 12px;
+}
+
+.fairway-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.45);
+}
+
+@media (min-width: 768px) {
+    .fairway-section {
+        min-height: 60vh;
+        padding: 56px 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fairway-section {
+        min-height: 70vh;
+        padding: 64px 40px;
+    }
+}
+
+.scorecard-section {
+    position: relative;
+    width: 100%;
+    height: min(100vh, 57.08vw);
+    background-color: #0a1628;
+    background-image: url("1stteebox.jpg");
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 32px 16px;
+}
+
+.scorecard-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.45);
+}
+
+.scorecard-heading {
+    position: relative;
+    z-index: 2;
+    font-family: 'Bebas Neue', serif;
+    color: white;
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.scorecard-images {
+    position: absolute;
+    z-index: 2;
+    left: 8%;
+    top: calc(30px + min(50vh, 28.5vw) - 13.5vw);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 23%;
+}
+
+.scorecard-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.scorecard-img:hover {
+    transform: scale(1.04);
+}
+
+@media (min-width: 768px) {
+    .scorecard-section {
+        padding: 40px 24px;
+    }
+
+    .scorecard-images {
+        top: calc(42px + min(50vh, 28.5vw) - 17.5vw);
+        width: 30%;
+        gap: 16px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .scorecard-section {
+        padding: 48px 40px;
+    }
+}
+
+/* ─── LIGHTBOX ─── */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(5, 10, 20, 0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 36px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ─── TESTIMONIALS ─── */
+
+.testimonial-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+}
+
+.testimonial-heading {
+    font-family: 'Bebas Neue', serif;
+    color: white;
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.5);
+    margin: 0;
+}
+
+.testimonial-slideshow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.slide-track {
+    position: relative;
+    flex: 1;
+    aspect-ratio: 2.3 / 1;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+}
+
+.slide-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.slide-img.active {
+    opacity: 1;
+}
+
+.slide-arrow {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.slide-arrow:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.slide-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.dot.active {
+    background: #deb753;
+}
+
+@media (min-width: 768px) {
+    .testimonial-slideshow {
+        max-width: 700px;
+    }
+
+    .slide-arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .testimonial-slideshow {
+        max-width: 900px;
+    }
+
+    .slide-arrow {
+        width: 46px;
+        height: 46px;
+        font-size: 17px;
+    }
+}
+
+/* ─── LOADER ─── */
+
+.loader {
+    position: fixed;
+    inset: 0;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.4s ease;
+}
+
+.loader.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid #e0e0e0;
+    border-top-color: black;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ─── WELCOME SECTION (mobile base) ─── */
+
+.welcome-section {
+    background: #f5f0e8;
+    padding: 48px 24px;
+    text-align: center;
+}
+
+.welcome-section p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 16px auto 0;
+}
+
+.welcome-section h2 {
+    font-family: 'Bebas Neue', serif;
+    font-size: clamp(32px, 8vw, 40px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    color: #1a2a1a;
+    margin: 0;
+}
+
+.welcome-section p + h2 {
+    margin-top: 32px;
+}
+
+.pro-shop-list {
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 16px auto 0;
+    text-align: left;
+    padding-left: 20px;
+}
+
+.pro-shop-list li + li {
+    margin-top: 8px;
+}
+
+/* ─── WELCOME SECTION (tablet) ─── */
+@media (min-width: 768px) {
+    .welcome-section {
+        padding: 64px 48px;
+    }
+
+    .welcome-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 20px auto 0;
+    }
+
+    .welcome-section h2 {
+        font-size: 44px;
+    }
+
+    .pro-shop-list {
+        font-size: 16px;
+        line-height: 1.8;
+        margin: 20px auto 0;
+    }
+}
+
+/* ─── WELCOME SECTION (desktop) ─── */
+@media (min-width: 1024px) {
+    .welcome-section {
+        padding: 80px 60px;
+    }
+
+    .welcome-section p {
+        line-height: 1.9;
+        margin: 24px auto 0;
+    }
+
+    .welcome-section h2 {
+        font-size: 52px;
+    }
+
+    .pro-shop-list {
+        line-height: 1.9;
+        margin: 24px auto 0;
+    }
+}
+
+/* ─── RATES TABLE ─── */
+
+.rates-section {
+    background: #f5f0e8;
+    padding: 32px 16px 64px;
+}
+
+.rates-banner {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #0a1628;
+    color: white;
+    text-align: center;
+    padding: 24px 16px;
+    border-radius: 4px 4px 0 0;
+}
+
+.rates-banner p {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+    margin: 6px 0 0;
+}
+
+.rates-banner p:first-child {
+    font-size: 20px;
+    margin-top: 0;
+}
+
+.rates-table-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.rates-table {
+    width: 100%;
+    min-width: 480px;
+    border-collapse: collapse;
+    background: white;
+    font-family: 'Oswald', sans-serif;
+}
+
+.rates-table td {
+    padding: 14px 12px;
+    text-align: center;
+    border: 1px solid #d8d2c4;
+    color: #1a2a3a;
+    font-size: 14px;
+}
+
+.rates-table td:first-child {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.rates-table tr.shaded td {
+    background: #e8e2d4;
+}
+
+.rates-table tr.rates-category td {
+    background: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.rates-table tr.rates-category-dark td {
+    background: #0a1628;
+    color: white;
+}
+
+.rates-table tr.rates-note td {
+    font-size: 13px;
+    font-style: italic;
+    color: #666;
+}
+
+@media (min-width: 768px) {
+    .rates-banner p {
+        font-size: 16px;
+    }
+
+    .rates-banner p:first-child {
+        font-size: 24px;
+    }
+
+    .rates-table td {
+        font-size: 16px;
+        padding: 16px 16px;
+    }
+}
+
+/* ─── TOPBAR ─── */
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 101;
+    background: #2c2c2c;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 32px;
+}
+
+.topbar-social {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.topbar-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.topbar-phone {
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.topbar-phone i {
+    font-size: 12px;
+}
+
+.topbar-social a {
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+}
+
+.topbar-social a:hover {
+    opacity: 1;
+}
+
+/* ─── NAVBAR (mobile base) ─── */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 16px;
+    height: 60px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-left {
+    display: none;
+}
+
+.nav-right {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.hamburger {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+    padding: 8px;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.hamburger:hover {
+    opacity: 1;
+}
+
+.nav-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-icon {
+    font-size: 28px;
+    color: #c9a84c;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.nav-horse {
+    height: 32px;
+    width: auto;
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-right: 10px;
+}
+
+.logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: white;
+    text-align: center;
+}
+
+.logo-sub {
+    font-size: 9px;
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    margin-top: 3px;
+}
+
+.nav-btn {
+    display: inline-block;
+    padding: 9px 20px;
+    border: 1.5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: white;
+}
+
+/* ─── NAVBAR (tablet) ─── */
+@media (min-width: 768px) {
+    .navbar {
+        padding: 0 20px;
+        height: 64px;
+    }
+
+    .nav-right {
+        right: 20px;
+    }
+
+    .hamburger {
+        font-size: 28px;
+    }
+
+    .nav-horse {
+        height: 34px;
+    }
+
+    .logo-name {
+        font-size: 17px;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+    }
+
+    .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .nav-btn {
+        padding: 7px 14px;
+        font-size: 12px;
+    }
+}
+
+/* ─── NAVBAR (desktop) ─── */
+@media (min-width: 1024px) {
+    .navbar {
+        padding: 0 32px;
+        height: 72px;
+    }
+
+    .nav-right {
+        right: 32px;
+        width: 180px;
+        justify-content: flex-end;
+    }
+
+    .hamburger {
+        font-size: 32px;
+    }
+
+    .nav-horse {
+        height: 40px;
+        margin-right: 12px;
+    }
+
+    .logo-name {
+        font-size: 22px;
+        letter-spacing: 0.12em;
+    }
+
+    .nav-left {
+        gap: 12px;
+        width: 280px;
+        justify-content: flex-start;
+    }
+
+    .nav-btn {
+        padding: 9px 20px;
+        font-size: 13px;
+    }
+}
+
+/* ─── SIDE MENU ─── */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    width: min(300px, 82vw);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 28px 32px;
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.35);
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    overflow-y: auto;
+}
+
+.side-menu.active {
+    transform: translateX(0);
+}
+
+.side-menu-close {
+    align-self: flex-start;
+    background: none;
+    border: none;
+    color: #1a2a3a;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+}
+
+.side-menu-close:hover {
+    opacity: 1;
+}
+
+.side-menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 16px;
+}
+
+.side-menu-links a {
+    font-family: 'Bebas Neue', serif;
+    font-size: clamp(26px, 7vw, 32px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #1a2a3a;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.side-menu-links a:hover {
+    color: #8a662f;
+}
+
+.side-menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+}
+
+.side-menu-actions .nav-btn {
+    display: block;
+    text-align: center;
+    color: #1a2a3a;
+    border-color: rgba(26, 42, 58, 0.4);
+}
+
+.side-menu-actions .nav-btn:hover {
+    background: rgba(26, 42, 58, 0.08);
+    border-color: #1a2a3a;
+}
+
+.side-menu-social {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.side-menu-social a {
+    color: #1a2a3a;
+    opacity: 0.75;
+    font-size: 18px;
+    transition: opacity 0.2s, color 0.2s;
+}
+
+.side-menu-social a:hover {
+    opacity: 1;
+    color: #8a662f;
+}
+
+@media (min-width: 768px) {
+    .side-menu {
+        width: 300px;
+        padding: 32px 36px 40px;
+    }
+}
+
+/* ─── HERO (mobile base) ─── */
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url("https://thewilsonrealestategroup.com/wp-content/uploads/2018/11/Davie-Golf.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to left,
+        rgba(5, 14, 28, 0.30) 0%,
+        rgba(5, 14, 28, 0.10) 50%,
+        rgba(5, 14, 28, 0.00) 100%
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 0 24px;
+    max-width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero-content h1.animate,
+.tee-btn.animate {
+    animation: scaleIn 0.6s ease forwards;
+}
+
+.hero-content h1 {
+    font-family: 'Bebas Neue', serif;
+    opacity: 0;
+    font-size: clamp(36px, 9vw, 48px);
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.tee-btn {
+    opacity: 0;
+    display: inline-block;
+    margin-top: 28px;
+    align-self: center;
+    padding: 14px 32px;
+    background: #deb753;
+    color: #0a1628;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.tee-btn:hover {
+    background: #c9a23e;
+    transform: translateY(-2px);
+}
+
+.hero-content p {
+    font-size: 15px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.8;
+    max-width: 460px;
+}
+
+/* ─── HERO (tablet) ─── */
+@media (min-width: 768px) {
+    .hero-content h1 {
+        font-size: clamp(40px, 7vw, 56px);
+    }
+}
+
+/* ─── HERO (desktop) ─── */
+@media (min-width: 1024px) {
+    .hero {
+        justify-content: flex-start;
+    }
+
+    .hero-content {
+        padding-right: 80px;
+        padding-left: 0;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: calc(63vw - 651px);
+        text-align: right;
+        align-items: flex-end;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(48px, 6vw, 80px);
+    }
+}
+
+/* ─── FOOTER (mobile base) ─── */
+
+.site-footer {
+    background: #05070d;
+    padding: 48px 24px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 32px;
+    margin-bottom: 32px;
+}
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-town {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.footer-town-logo {
+    height: 96px;
+    width: auto;
+    border-radius: 6px;
+}
+
+.footer-town-caption {
+    font-family: 'Oswald', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 200px;
+    text-align: center;
+}
+
+.footer-horse {
+    height: 39px;
+    width: auto;
+}
+
+.footer-logo-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+}
+
+@media (max-width: 767px) {
+    .footer-col-explore {
+        display: none;
+    }
+}
+
+.footer-col h4 {
+    font-family: 'Bebas Neue', serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: #deb753;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.72);
+    text-decoration: none;
+    margin-bottom: 8px;
+    transition: color 0.2s;
+}
+
+.footer-col a:hover {
+    color: #deb753;
+}
+
+.footer-col p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.7;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-copy {
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.4);
+    text-align: center;
+}
+
+.footer-social {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.footer-social a {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-social a:hover {
+    color: #deb753;
+}
+
+/* ─── FOOTER (tablet) ─── */
+@media (min-width: 768px) {
+    .site-footer {
+        padding: 56px 40px 24px;
+    }
+
+    .footer-top {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .footer-left {
+        align-items: flex-start;
+    }
+
+    .footer-brand {
+        text-align: left;
+    }
+
+    .footer-town {
+        align-items: flex-start;
+    }
+
+    .footer-town-caption {
+        text-align: left;
+    }
+
+    .footer-links {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .footer-copy {
+        text-align: left;
+    }
+}
+
+/* ─── FOOTER (desktop) ─── */
+@media (min-width: 1024px) {
+    .site-footer {
+        padding: 64px 60px 28px;
+    }
+
+    .footer-links {
+        gap: 64px;
+    }
+}
+
+/* ─── CLUB PHOTO (mobile base) ─── */
+
+.club-photo-section {
+    background: #f5f0e8;
+    padding: 40px 0;
+}
+
+.club-photo-wrap {
+    position: relative;
+}
+
+.club-photo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 10, 20, 0.22);
+}
+
+.club-benefits-row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-top: 48px;
+    padding: 0 24px 48px;
+}
+
+.club-benefits-image-col {
+    flex: 1;
+}
+
+.club-benefits-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.club-benefits-text-col {
+    flex: 1.5;
+}
+
+.club-photo-heading {
+    font-family: 'Bebas Neue', serif;
+    font-size: clamp(28px, 8vw, 40px);
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #1a2a1a;
+    max-width: 620px;
+    margin: 0;
+}
+
+.club-benefits {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 300;
+    color: #444;
+    line-height: 1.8;
+    max-width: 620px;
+    margin: 20px 0 0;
+}
+
+.club-benefits-link {
+    color: #b8863f;
+    font-weight: 500;
+}
+
+.club-benefits-link:hover {
+    color: #8a662f;
+}
+
+.club-photo {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.club-membercard-group {
+    position: absolute;
+    top: 49%;
+    left: 46%;
+    transform: translateY(-50%);
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+.club-membercard-frame {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+}
+
+.club-membercard {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.club-join-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #deb753;
+    color: #0a1628;
+    text-decoration: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: background 0.2s, transform 0.2s;
+    white-space: nowrap;
+}
+
+.club-join-btn:hover {
+    background: #c9a23e;
+    transform: translateY(-2px);
+}
+
+/* ─── CLUB PHOTO (tablet) ─── */
+@media (min-width: 768px) {
+    .club-photo-section {
+        padding: 56px 0;
+    }
+
+    .club-membercard-group {
+        width: 36%;
+        gap: 28px;
+    }
+
+    .club-membercard-frame {
+        border-radius: 14px;
+    }
+
+    .club-join-btn {
+        padding: 13px 30px;
+        font-size: 14px;
+    }
+
+    .club-benefits-row {
+        margin-top: 64px;
+        padding: 0 48px 64px;
+    }
+}
+
+/* ─── CLUB PHOTO (desktop) ─── */
+@media (min-width: 1024px) {
+    .club-photo-section {
+        padding: 72px 0;
+    }
+
+    .club-membercard-group {
+        width: 42%;
+        gap: 36px;
+    }
+
+    .club-membercard-frame {
+        border-radius: 24px;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.42);
+    }
+
+    .club-join-btn {
+        padding: 18px 48px;
+        font-size: 17px;
+    }
+
+    .club-benefits-row {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 80px;
+        padding: 0 40px 80px;
+    }
+}
+
+/* ─── BOOK EVENTS ─── */
+
+.book-section {
+    background: #f5f0e8;
+    padding: 48px 24px;
+}
+
+.book-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.book-form-col {
+    flex: 1.15;
+    order: 2;
+}
+
+.book-image-col {
+    flex: 1.25;
+    order: 1;
+}
+
+.book-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.book-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 7vw, 34px);
+    font-weight: 700;
+    color: #1a2a1a;
+    margin: 0 0 28px;
+}
+
+.book-fields-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.book-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.book-field label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a2a1a;
+}
+
+.book-field .required {
+    color: #c9a23e;
+}
+
+.book-field input,
+.book-field textarea {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: #ece7db;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    padding: 12px 14px;
+}
+
+.book-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.book-field input:focus,
+.book-field textarea:focus {
+    outline: none;
+    border-color: #c9a23e;
+    background: #f5f2e8;
+}
+
+.book-submit-btn {
+    display: inline-block;
+    background: #deb753;
+    color: #fff;
+    border: none;
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s, transform 0.2s;
+}
+
+.book-submit-btn:hover {
+    background: #c9a23e;
+    transform: translateY(-2px);
+}
+
+@media (min-width: 640px) {
+    .book-fields-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .book-section {
+        padding: 64px 48px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .book-section {
+        padding: 80px 40px;
+    }
+
+    .book-wrap {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .book-form-col {
+        order: 1;
+    }
+
+    .book-image-col {
+        order: 2;
+    }
+}
+
+/* ─── OUTINGS LETTER ─── */
+
+.outings-letter-section {
+    background: #f5f0e8;
+    padding: 0 24px 48px;
+}
+
+.outings-letter-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.outings-letter-image-col {
+    flex: 1;
+}
+
+.outings-letter-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+.outings-letter {
+    flex: 1.5;
+    font-family: 'Oswald', sans-serif;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: #444;
+}
+
+.outings-letter p {
+    margin: 0 0 20px;
+}
+
+.outings-letter-phone {
+    color: #1a2a1a;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.outings-letter-phone:hover {
+    color: #b8863f;
+}
+
+.outings-letter-ps {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .outings-letter-section {
+        padding: 0 48px 64px;
+    }
+
+    .outings-letter {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+}
+
+@media (min-width: 1024px) {
+    .outings-letter-section {
+        padding: 0 40px 80px;
+    }
+
+    .outings-letter-wrap {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .outings-letter {
+        line-height: 1.9;
+    }
+}

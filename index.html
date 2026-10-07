@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Davie Golf Club</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="daviegolf.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="loader" id="loader">
+        <div class="loader-spinner"></div>
+    </div>
+
+<nav class="navbar">
+        <div class="nav-left">
+            <a href="#" class="nav-btn">GET STARTED</a>
+            <a href="#" class="nav-btn">MEMBER LOGIN</a>
+        </div>
+        <div class="nav-center">
+            <a href="index.html" class="nav-logo">
+                <img src="daviehorse1.png" alt="Davie Golf Club Logo" class="nav-horse">
+                <span class="logo-name">DAVIE GOLF CLUB</span>
+            </a>
+        </div>
+        <div class="nav-right">
+            <button class="hamburger">&#9776;</button>
+        </div>
+    </nav>
+
+    <aside class="side-menu" id="sideMenu">
+        <button class="side-menu-close" aria-label="Close menu">&times;</button>
+        <nav class="side-menu-links">
+            <a href="index.html">Home</a>
+            <a href="course-info.html">Course Info</a>
+            <a href="book-events.html">Book Events</a>
+            <a href="course-rates.html">Course Rates</a>
+            <a href="players-club.html">Players Club</a>
+        </nav>
+        <div class="side-menu-actions">
+            <a href="#" class="nav-btn">Get Started</a>
+            <a href="#" class="nav-btn">Member Login</a>
+        </div>
+        <div class="side-menu-social">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+    </aside>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>South Florida's Most Fun Greens</h1>
+            <a href="#" class="tee-btn">Make a Tee Time</a>
+        </div>
+    </section>
+
+    <section class="welcome-section">
+        <h2>Welcome to Davie Golf Club</h2>
+        <p>The course was redesigned in 2011 and new renovated greens in 2024 to enhance its enjoyment and to provide an exciting challenge for all levels of ability. Several hundred native trees have been planted to provide a definition of each hole's landing area and green site. Harrison Minchew is the primary architect. The course was designed to the same standard of design that Mr. Minchew used while working as Arnold Palmer's Senior Golf Course Architect. The course consists of rolling fairways and multi-tiered greens.</p>
+    </section>
+
+    <section class="cards-section">
+        <div class="cards-grid">
+            <a href="course-info.html" class="card" style="background-image: url('https://www.daviegc.com/images/galleries/gallery/05-2.jpg')">
+                <div class="card-overlay"></div>
+                <span class="card-label">Course Info</span>
+            </a>
+            <div class="card" style="background-image: url('https://www.daviegc.com/images/mensleague.jpg')">
+                <div class="card-overlay"></div>
+                <span class="card-label">Book Events</span>
+            </div>
+            <a href="course-rates.html" class="card" style="background-image: url('https://assets.simpleviewinc.com/simpleview/image/upload/c_limit,h_1200,q_75,w_1200/v1/crm/visitflorida/45485_ll5fmw3f842dnx7i9mctfi60f70k1euq_99444a39-5056-a36a-0b1fefd88aa85e51.jpg')">
+                <div class="card-overlay"></div>
+                <span class="card-label">Course Rates</span>
+            </a>
+            <a href="players-club.html" class="card" style="background-image: url('https://media.gettyimages.com/id/2165346142/video/closeup-of-bearded-male-golfer-in-cap-taking-a-shot-and-looking-away-at-course-during-sunset.jpg?s=640x640&k=20&c=O8tCKrC5Xfd87RBRq8Hs2qDyadZc9z4t8WGH209LCKg=')">
+                <div class="card-overlay"></div>
+                <span class="card-label">Players Club</span>
+            </a>
+        </div>
+    </section>
+
+    <section class="fairway-section">
+        <div class="testimonial-content">
+            <h2 class="testimonial-heading">Guest Feedback</h2>
+            <div class="testimonial-slideshow">
+                <button class="slide-arrow slide-prev" aria-label="Previous review">&#10094;</button>
+                <div class="slide-track">
+                    <img src="review1.png" class="slide-img active" alt="Guest review 1">
+                    <img src="review2.png" class="slide-img" alt="Guest review 2">
+                    <img src="review3.png" class="slide-img" alt="Guest review 3">
+                </div>
+                <button class="slide-arrow slide-next" aria-label="Next review">&#10095;</button>
+            </div>
+            <div class="slide-dots">
+                <button class="dot active" data-index="0" aria-label="Show review 1"></button>
+                <button class="dot" data-index="1" aria-label="Show review 2"></button>
+                <button class="dot" data-index="2" aria-label="Show review 3"></button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-left">
+                <div class="footer-brand">
+                    <img src="daviehorse1.png" alt="Davie Golf Club" class="footer-horse">
+                    <span class="footer-logo-name">DAVIE GOLF CLUB</span>
+                </div>
+
+                <div class="footer-town">
+                    <img src="townlogo.jpg" alt="Town of Davie" class="footer-town-logo">
+                    <span class="footer-town-caption">Owned and operated by the town of Davie</span>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Pro Shop Hours</h4>
+                    <p>Daily</p>
+                    <p>7:00 AM &ndash; 6:30 PM</p>
+                </div>
+                <div class="footer-col footer-col-explore">
+                    <h4>Explore</h4>
+                    <a href="course-info.html">Course Info</a>
+                    <a href="book-events.html">Book Events</a>
+                    <a href="course-rates.html">Course Rates</a>
+                    <a href="players-club.html">Players Club</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Club</h4>
+                    <a href="#">Get Started</a>
+                    <a href="#">Member Login</a>
+                    <a href="#">Make a Tee Time</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Davie, Florida</p>
+                    <p>(954) 000-0000</p>
+                    <p>info@daviegolfclub.com</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p class="footer-copy">&copy; 2026 Davie Golf Club. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const cards = document.querySelectorAll('.card');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const card = entry.target;
+                    const index = [...cards].indexOf(card);
+                    setTimeout(() => card.classList.add('visible'), index * 150);
+                    observer.unobserve(card);
+                }
+            });
+        }, { threshold: 0.15 });
+        cards.forEach(card => observer.observe(card));
+
+        document.fonts.ready.then(() => {
+            const loader = document.getElementById('loader');
+            loader.classList.add('hidden');
+            setTimeout(() => {
+                loader.remove();
+                document.querySelector('.hero-content h1').classList.add('animate');
+                document.querySelector('.tee-btn').classList.add('animate');
+            }, 400);
+        });
+
+        const slides = document.querySelectorAll('.slide-img');
+        const dots = document.querySelectorAll('.dot');
+        let slideIndex = 0;
+        let slideTimer;
+
+        function showSlide(i) {
+            slides[slideIndex].classList.remove('active');
+            dots[slideIndex].classList.remove('active');
+            slideIndex = (i + slides.length) % slides.length;
+            slides[slideIndex].classList.add('active');
+            dots[slideIndex].classList.add('active');
+        }
+
+        function resetSlideTimer() {
+            clearInterval(slideTimer);
+            slideTimer = setInterval(() => showSlide(slideIndex + 1), 5000);
+        }
+
+        document.querySelector('.slide-next').addEventListener('click', () => {
+            showSlide(slideIndex + 1);
+            resetSlideTimer();
+        });
+        document.querySelector('.slide-prev').addEventListener('click', () => {
+            showSlide(slideIndex - 1);
+            resetSlideTimer();
+        });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.dataset.index, 10));
+                resetSlideTimer();
+            });
+        });
+        resetSlideTimer();
+    </script>
+    <script src="nav-menu.js"></script>
+</body>
+
+</html>
